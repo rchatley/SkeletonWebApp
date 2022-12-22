@@ -17,15 +17,5 @@ public class QueryProcessor {
 
         return "";
     }
-
-    private String extractTwoNumbersAnd(String query, BinaryOperator<Integer> func) {
-        Pattern twoNumbers = Pattern.compile("What is (\\d+) (plus|multiplied by) (\\d+)?");
-        Matcher matcher = twoNumbers.matcher(query);
-        if (matcher.find()) {
-            int a = Integer.parseInt(matcher.group(1));
-            int b = Integer.parseInt(matcher.group(3));
-            return String.valueOf(func.apply(a, b));
-        }
-        return null;
-    }
+    
 }
