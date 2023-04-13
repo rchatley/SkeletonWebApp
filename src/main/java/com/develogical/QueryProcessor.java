@@ -1,10 +1,5 @@
 package com.develogical;
 
-import java.util.Arrays;
-import java.util.function.BinaryOperator;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class QueryProcessor {
 
     public String process(String query) {
