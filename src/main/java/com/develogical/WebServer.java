@@ -26,6 +26,24 @@ public class WebServer {
     server.start();
   }
 
+  private static String queryFrom(HttpServletRequest req) {
+    String query;
+    if (req.getParameter("q") != null) {
+      query = req.getParameter("q");
+    } else {
+      query = "";
+    }
+    return query;
+  }
+
+  public static void main(String[] args) throws Exception {
+    new WebServer();
+  }
+
+  private Integer portNumberToUse() {
+    return System.getenv("PORT") != null ? Integer.parseInt(System.getenv("PORT")) : 8080;
+  }
+
   static class Website extends HttpServlet {
 
     @Override
@@ -41,30 +59,12 @@ public class WebServer {
 
   static class Api extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+        throws ServletException, IOException {
       System.out.println(req.getRequestURI());
       System.out.println(req.getParameterMap());
       String query = queryFrom(req);
       new ApiResponse(new QueryProcessor().process(query)).writeTo(resp);
     }
   }
-
-  private static String queryFrom(HttpServletRequest req) {
-    String query;
-    if (req.getParameter("q") != null) {
-      query = req.getParameter("q");
-    } else {
-      query = "";
-    }
-    return query;
-  }
-
-  private Integer portNumberToUse() {
-    return System.getenv("PORT") != null ? Integer.parseInt(System.getenv("PORT")) : 8080;
-  }
-
-  public static void main(String[] args) throws Exception {
-    new WebServer();
-  }
-
 }
