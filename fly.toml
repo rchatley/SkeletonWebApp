@@ -1,5 +1,5 @@
 # Change the following line to match your own app name.
-app = "wispy-glitter-9234"
+app = "dry-forest-6501"
 
 kill_signal = "SIGINT"
 kill_timeout = 5
