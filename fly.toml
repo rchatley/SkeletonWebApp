@@ -1,5 +1,5 @@
 # Change the following line to match your own app name.
-app = "dry-forest-6501"
+app = "your-app-name-here"
 
 kill_signal = "SIGINT"
 kill_timeout = 5
