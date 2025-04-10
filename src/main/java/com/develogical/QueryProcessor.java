@@ -6,6 +6,10 @@ public class QueryProcessor {
 
     System.out.println("Received query:" + query);
 
+    if (query.toLowerCase().contains("your name")) {
+      return "RobTeam";
+    }
+
     if (query.toLowerCase().contains("shakespeare")) {
       return "William Shakespeare (26 April 1564 - 23 April 1616) was an "
           + "English poet, playwright, and actor, widely regarded as the greatest "
