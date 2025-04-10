@@ -61,8 +61,6 @@ public class WebServer {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException {
-      System.out.println(req.getRequestURI());
-      System.out.println(req.getParameterMap());
       String query = queryFrom(req);
       new ApiResponse(new QueryProcessor().process(query)).writeTo(resp);
     }
